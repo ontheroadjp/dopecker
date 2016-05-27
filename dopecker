@@ -100,6 +100,13 @@ function DDrm() {
         docker rm -f ${id}
     fi
 }
+function DDkill() {
+    id=$(docker ps -a | grep "Dead \| Restarting" | peco | cut -d" " -f1)
+    if [ ! -z "$id" ] ; then
+        echo 'docker rm'
+        docker rm -f ${id}
+    fi
+}
 function DDnone() {
     echo 'docker <none>'
     docker rmi $(docker images | awk '/^<none>/ { print $3 }')
