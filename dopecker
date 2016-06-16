@@ -136,6 +136,12 @@ function DDbash() {
         docker exec -i -t ${id} /bin/bash
     fi
 }
+function DDsh() {
+    id=$(DDid)
+    if [ ! -z "$id" ] ; then
+        docker exec -i -t ${id} /bin/sh
+    fi
+}
 function DDmysql() {
     id=$(docker ps | tail -n +2 | peco | cut -d" " -f1)
     if [ ! -z "$id" ] ; then
