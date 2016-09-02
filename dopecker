@@ -137,6 +137,10 @@ function DDrmi() {
         docker rmi ${id}
     fi
 }
+function DDrmia() {
+        echo 'docker rmi'
+        docker rmi $(docker images -q)
+}
 function DDid() {
     id=$(docker ps | tail -n +2 | peco | cut -d" " -f1)
     if [ ! -z "$id" ] ; then
