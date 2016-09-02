@@ -100,6 +100,19 @@ function DDrm() {
         docker rm -f ${id}
     fi
 }
+function DDrma() {
+    echo 'docker rm'
+    docker rm $(docker ps -a -q)
+}
+function DDdown() {
+    id=$(docker ps | tail -n +2 | peco | cut -d" " -f1)
+    if [ ! -z "$id" ] ; then
+        echo 'docker stop'
+        docker stop ${id}
+        echo 'docker rm'
+        docker rm ${id}
+    fi
+}
 function DDkill() {
     id=$(docker ps -a | grep "Dead \| Restarting" | peco | cut -d" " -f1)
     if [ ! -z "$id" ] ; then
@@ -173,7 +186,7 @@ function DDtop() {
     fi
 }
 function DDlogs() {
-    id=$(docker ps | tail -n +2 | peco | cut -d" " -f1)
+    id=$(docker ps -a | tail -n +2 | peco | cut -d" " -f1)
     if [ ! -z "$id" ] ; then
         docker logs ${id}
     fi
