@@ -1,10 +1,10 @@
 # Dopecker
 
-This is very usufull shell command library for the Docker container work.
+This is very usuful shell command library for the Docker container work.
 
 ## Requirements
 
-* [Docker](https://github.com/docker/docker)
+* [Docker](http://www.docker.com/)
 * [peco](https://github.com/peco/peco)
 
 ## Getting started
@@ -15,7 +15,7 @@ $ git clone https://github.com/ontheroadjp/dopecker.git
 $ source dopecker/dopecker
 ```
 
-### Add .bashrc or .bash_profile
+### Add below into ~/.bashrc or ~/.bash_profile to enable afrer restart computer
 
 ```
 if [ -f /path/to/dopecker/dopecker ]; then
@@ -38,7 +38,7 @@ $ DDid			# show specific container's id
 $ DDip			# show specific container's IP Address
 $ DDvol			# show specific container's mounted volumes
 $ DDenv			# show specific container's environment variables
-$ DDhosts		# show specific container's hosts file
+$ DDhosts		# show specific container's /etc/hosts file
 $ DDps			# execute docker ps
 $ DDpsa			# execute docker ps -a
 $ DDi			# execute docker images
@@ -58,7 +58,7 @@ $ DDstop		# stop specific container
 $ DDrm			# remove specific container
 $ DDrmi			# remove specific image
 $ DDstopa		# stop all of running container
-$ DDnone		# remove <none> images
+$ DDnone		# remove all <none> images
 $ DDreset		# stop and remove all of the container
 ```
 
