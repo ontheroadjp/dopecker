@@ -165,6 +165,12 @@ function DDmysql() {
         docker exec -i -t ${id} mysql -u root -proot
     fi
 }
+function DDredis() {
+    id=$(docker ps | tail -n +2 | peco | cut -d" " -f1)
+    if [ ! -z "$id" ] ; then
+        docker exec -i -t ${id} redis-cli
+    fi
+}
 function DDmongo() {
     id=$(docker ps | tail -n +2 | peco | cut -d" " -f1)
     if [ ! -z "$id" ]; then
